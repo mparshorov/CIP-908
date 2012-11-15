@@ -38,8 +38,8 @@ public class DataCleaningHTMLTest
     private void assertString(String input, String expectedOutput)
     {
     //    String actualClean = testClean.parse(input);
-     //   assertNotNull("Invalid String!", input);
-    //    assertEquals("Fail", expectedOutput, actualClean);
+        assertNotNull("Invalid String!", input);
+//        assertEquals("Fail", expectedOutput, actualClean);
         
         
     }

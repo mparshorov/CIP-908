@@ -7,7 +7,7 @@ import org.junit.Test;
 import uk.co.newsint.cip.utilities.htmldataclean.HTMLDataCleaner;
 
 /**
- * JUnit tests.
+ * JUnit tests. Data taken from 3 different columns in sample_omniture_data.
  * 
  * @author BitMix
  * 
@@ -15,7 +15,7 @@ import uk.co.newsint.cip.utilities.htmldataclean.HTMLDataCleaner;
 public class DataCleaningHTMLTest
 {
     /**
-     * Instance of HTMLDataCleaner to parse Strings later in the tests.
+     * Instance of HTMLDataCleaner to clean Strings later in the tests.
      */
     HTMLDataCleaner testClean = new HTMLDataCleaner();
 
@@ -80,8 +80,8 @@ public class DataCleaningHTMLTest
     /**
      * Assert method.
      * 
-     * @param input
-     * @param expectedOutput
+     * @param input input line to be cleaned
+     * @param expectedOutput expected line after cleaning
      */
     private void assertString(String input, String expectedOutput)
     {

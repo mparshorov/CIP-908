@@ -11,7 +11,7 @@ import org.jsoup.Jsoup;
  * 
  */
 
-public class HTMLDataCleaner
+public class HTMLDataCleaner extends DataCleaner
 {
     /**
      * This is a regular expression which is used for removing the nonalpha characters in the input text
@@ -20,7 +20,7 @@ public class HTMLDataCleaner
     /**
      * This is the text after the clean process
      */
-    private String cleanedText;
+    private String cleanedText = "";
 
     /**
      * Get the cleaned text
@@ -31,7 +31,9 @@ public class HTMLDataCleaner
     }
 
     /**
-     * This method is used for cleaning the input data from html tags and url encoding
+     * This method is used for cleaning
+     * 
+     * @see{@link DataCleaner#clean(String)}
      */
     public void clean(String inputText)
     {
@@ -41,7 +43,7 @@ public class HTMLDataCleaner
         // apache commons url codec for decoding the url's in the text
         URLCodec urlDecoder = new URLCodec();
 
-        // Clean url decoding
+        // Decoding the url
         try
         {
             cleanedText = urlDecoder.decode(inputText);
@@ -55,9 +57,11 @@ public class HTMLDataCleaner
         cleanedText = Jsoup.parse(cleanedText).text();
 
         // Remove nonalpha characters
-        cleanedText = cleanedText.replaceAll(REGEXP_REMOVE_NONALPHA, "");
+        if (cleanedText != null)
+        {
+            cleanedText.replaceAll(REGEXP_REMOVE_NONALPHA, "");
+        }
 
         this.cleanedText = cleanedText;
-        //return cleanedText;
     }
 }

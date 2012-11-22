@@ -88,7 +88,6 @@ public class DataCleaningHTMLTest
         testClean.clean(input);
         assertNotNull("Invalid String!", input);
         assertEquals("Fail", expectedOutput, testClean.getCleanedText());
-
     }
 
 }

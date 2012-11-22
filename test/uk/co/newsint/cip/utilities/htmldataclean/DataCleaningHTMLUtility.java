@@ -22,7 +22,7 @@ public class DataCleaningHTMLUtility
      * 
      * @param file input file to be cleaned line by line from HTML tags, encoding and non-alpha characters
      */
-    private void parseAll(File file)
+    private void cleanAll(File file)
     {
         HTMLDataCleaner hdc = new HTMLDataCleaner();
         BufferedReader reader = null;
@@ -32,7 +32,8 @@ public class DataCleaningHTMLUtility
         {
             try
             {
-                writer = new FileWriter("test_html_clean_cleaned_tabDelimited.csv");
+                writer = new FileWriter("test_html_clean_result_tabDelimited.csv");
+                writer.append("Input" + "\t" + "Result" + "\n");
                 reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
 
                 while ((currentLine = reader.readLine()) != null)
@@ -81,12 +82,11 @@ public class DataCleaningHTMLUtility
      * Main method.
      * 
      * @param args
-     * @throws IOException
      */
-    public static void main(String[] args) throws IOException
+    public static void main(String[] args)
     {
         DataCleaningHTMLUtility utility = new DataCleaningHTMLUtility();
-        utility.parseAll(new File("test_html_clean.txt"));
+        utility.cleanAll(new File("test_html_clean.txt"));
     }
 
 }

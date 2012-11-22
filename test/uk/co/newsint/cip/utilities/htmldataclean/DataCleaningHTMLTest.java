@@ -10,7 +10,7 @@ import uk.co.newsint.cip.utilities.htmldataclean.HTMLDataCleaner;
  * JUnit tests.
  * 
  * @author BitMix
- *
+ * 
  */
 public class DataCleaningHTMLTest
 {
@@ -27,16 +27,20 @@ public class DataCleaningHTMLTest
     {
         assertString("ipadtto/news <font size=\"44pt\">police seek spy link to murdered briton</font>",
                 "ipadttonewspoliceseekspylinktomurderedbriton");
-        assertString("ipadtto/news <font face=\"timesmcl.ttf\"><font size=\"43pt\"><font color=\"#44849d\">michael parkinson </font>'his career was a mystery'</font></font>",
+        assertString(
+                "ipadtto/news <font face=\"timesmcl.ttf\"><font size=\"43pt\"><font color=\"#44849d\">michael parkinson </font>'his career was a mystery'</font></font>",
                 "ipadttonewsmichaelparkinsonhiscareerwasamystery");
-        assertString("ipadtto/news <font color=\"#cc0000\"><font face=\"arial,sans,sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-align: start; text-indent: 0px; text-transf",
+        assertString(
+                "ipadtto/news <font color=\"#cc0000\"><font face=\"arial,sans,sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-align: start; text-indent: 0px; text-transf",
                 "ipadttonews");
-        assertString("ipadtto/news <font face=\"timesmcl.ttf\"><font color=\"#44849d\">my week</font> </font><font face=\"timesmcl.ttf\">george entwistle*</font>",
+        assertString(
+                "ipadtto/news <font face=\"timesmcl.ttf\"><font color=\"#44849d\">my week</font> </font><font face=\"timesmcl.ttf\">george entwistle*</font>",
                 "ipadttonewsmyweekgeorgeentwistle");
-        assertString("ipadtto/the game <font color=\"#0a5f00\"><font face=\"timesmeb.ttf\">the times live match centre</font></font>",
+        assertString(
+                "ipadtto/the game <font color=\"#0a5f00\"><font face=\"timesmeb.ttf\">the times live match centre</font></font>",
                 "ipadttothegamethetimeslivematchcentre");
     }
-    
+
     /**
      * Test for cleaning encoded URL, HTML tags and non-alphabetic characters to String.
      */
@@ -54,23 +58,21 @@ public class DataCleaningHTMLTest
         assertString("ipadtto/news <font face=\"timesmcl.ttf\">'i had no problem with prison or its residents. it was sociol",
                 "ipadttonewsihadnoproblemwithprisonoritsresidentsitwassociol");
     }
-    
+
     /**
      * Test for cleaning encoded URL, HTML tags and non-alphabetic characters to String.
      */
     @Test
     public void htmlCleanTestColumn3()
     {
-        assertString("<font size=\"44pt\">police seek spy link to murdered briton</font>",
-                "policeseekspylinktomurderedbriton");
+        assertString("<font size=\"44pt\">police seek spy link to murdered briton</font>", "policeseekspylinktomurderedbriton");
         assertString("<font size=\"43pt\">teachers attack plan to make english and maths tests harder for new recruits</font",
                 "teachersattackplantomakeenglishandmathstestsharderfornewrecruits");
         assertString("<font face=\"timesmcl.ttf\"><font size=\"43pt\"><font color=\"#44849d\">michael parkinson </font>'his care",
                 "michaelparkinsonhiscare");
         assertString("<font face=\"timesmcl.ttf\"><font color=\"#44849d\">freddie starr</font> 'i want to be interviewed'</fon",
                 "freddiestarriwanttobeinterviewed");
-        assertString("<font color=\"#cc0000\"><font face=\"arial,sans,sans-serif; font-size: 13px; font-style: normal; font-v",
-                "");
+        assertString("<font color=\"#cc0000\"><font face=\"arial,sans,sans-serif; font-size: 13px; font-style: normal; font-v", "");
         assertString("<font face=\"timesmcl.ttf\"><font color=\"#44849d\">my week</font> </font><font face=\"timesmcl.ttf\">geor",
                 "myweekgeor");
     }
@@ -83,11 +85,10 @@ public class DataCleaningHTMLTest
      */
     private void assertString(String input, String expectedOutput)
     {
-    //    String actualClean = testClean.parse(input);
+        testClean.clean(input);
         assertNotNull("Invalid String!", input);
-//        assertEquals("Fail", expectedOutput, actualClean);
-        
-        
+        assertEquals("Fail", expectedOutput, testClean.getCleanedText());
+
     }
 
 }

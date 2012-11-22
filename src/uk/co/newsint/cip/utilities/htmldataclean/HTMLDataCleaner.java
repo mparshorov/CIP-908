@@ -1,12 +1,8 @@
 package uk.co.newsint.cip.utilities.htmldataclean;
 
-import java.io.IOException;
-import java.util.regex.Pattern;
-
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.net.URLCodec;
 import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
 
 /**
  * This class is used to clean the input data

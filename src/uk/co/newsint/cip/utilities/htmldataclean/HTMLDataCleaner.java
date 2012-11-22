@@ -20,7 +20,7 @@ public class HTMLDataCleaner extends DataCleaner
     /**
      * This is the text after the clean process
      */
-    private String cleanedText = "";
+    private String cleanedText;
 
     /**
      * Get the cleaned text
@@ -59,7 +59,7 @@ public class HTMLDataCleaner extends DataCleaner
         // Remove nonalpha characters
         if (cleanedText != null)
         {
-            cleanedText.replaceAll(REGEXP_REMOVE_NONALPHA, "");
+            cleanedText = cleanedText.replaceAll(REGEXP_REMOVE_NONALPHA, "");
         }
 
         this.cleanedText = cleanedText;

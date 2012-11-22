@@ -33,7 +33,7 @@ public class DataCleaningHTMLUtility
             try
             {
                 writer = new FileWriter("test_html_clean_result_tabDelimited.csv");
-                writer.append("Input" + "\t" + "Result" + "\n");
+                writer.append("Input" + "\t" + "Output" + "\n");
                 reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
 
                 while ((currentLine = reader.readLine()) != null)

@@ -16,6 +16,8 @@ public class HTMLDataCleaner implements DataCleaner
 {
     
     
+    
+    
     /**
      * This is a regular expression which is used for removing the nonalpha characters in the input text
      */
@@ -32,6 +34,8 @@ public class HTMLDataCleaner implements DataCleaner
     {
         return this.cleanedText;
     }
+    
+    
 
     /**
      * This method is used for cleaning

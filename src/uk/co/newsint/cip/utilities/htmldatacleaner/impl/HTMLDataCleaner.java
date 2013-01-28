@@ -14,6 +14,8 @@ import uk.co.newsint.cip.utilities.htmldatacleaner.DataCleaner;
  */
 public class HTMLDataCleaner implements DataCleaner
 {
+    
+    
     /**
      * This is a regular expression which is used for removing the nonalpha characters in the input text
      */

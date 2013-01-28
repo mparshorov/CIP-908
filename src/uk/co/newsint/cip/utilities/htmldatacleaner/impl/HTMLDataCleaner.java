@@ -30,6 +30,8 @@ public class HTMLDataCleaner implements DataCleaner
     {
         return this.cleanedText;
     }
+    
+    
 
     /**
      * This method is used for cleaning
